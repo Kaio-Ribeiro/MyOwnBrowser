@@ -27,5 +27,10 @@ document.getElementById('details').addEventListener("click", function() {
     const inputText = document.querySelector('.responsive-iframe').src
     const iframe = open(inputText, "frameTab")
 
-    alert("URL: "  + iframe.location.href + "\nProtocolo: " + "\nPorta" + "\nLargura X Comprimento: " + "\nSO: ")
+    alert("URL: "  + iframe.location.href + 
+        "\nProtocolo: " + iframe.location.protocol + 
+        "\nPorta: " + iframe.location.port + 
+        "\nLargura X Altura: " + iframe.innerWidth + '+' + iframe.innerHeight + 
+        "\nSO: " + iframe.navigator.platform
+    )
 })
