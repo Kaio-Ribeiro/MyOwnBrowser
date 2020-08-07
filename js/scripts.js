@@ -1,7 +1,8 @@
+let iframe
+
 document.getElementById('search').addEventListener("click", function() {
-    const inputValue = document.getElementById('url_text').value
-    open(inputValue, "frameTab")
-    document.querySelector('.responsive-iframe').src = inputValue
+    inputValue = document.getElementById('url_text').value
+    iframe = open(inputValue, "frameTab")
 })
 
 document.querySelector('.dot').addEventListener("click", function() {
@@ -24,13 +25,12 @@ document.querySelector('.newTab').addEventListener("click", function() {
 })
 
 document.getElementById('details').addEventListener("click", function() {
-    const inputText = document.querySelector('.responsive-iframe').src
-    const iframe = open(inputText, "frameTab")
-
-    alert("URL: "  + iframe.location.href + 
-        "\nProtocolo: " + iframe.location.protocol + 
-        "\nPorta: " + iframe.location.port + 
-        "\nLargura X Altura: " + iframe.innerWidth + '+' + iframe.innerHeight + 
-        "\nSO: " + iframe.navigator.platform
-    )
+    if(document.getElementById('url_text').value !== "") {
+        alert("URL: "  + iframe.location.href + 
+            "\nProtocolo: " + iframe.location.protocol + 
+            "\nPorta: " + iframe.location.port + 
+            "\nLargura X Altura: " + iframe.innerWidth + 'X' + iframe.innerHeight + 
+            "\nSO: " + iframe.navigator.platform
+        )
+    }
 })
